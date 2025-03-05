@@ -10,11 +10,10 @@ Criar a parte visual de uma aplicação de entregas de café, o Coffee Delivery.
 
 ### 📚 Lista de Tarefas:
 
-- [ ]  Criar Projeto Expo
-- [ ]  Implementar Expo Router
-- [ ]  Implementar Nativewind 
+- [X]  Criar Projeto Expo
+- [X]  Implementar Expo Router
+- [X]  Implementar Nativewind 
 - [ ]  Implementar Tema
-- [ ]  Implementar Interfarce
 - [ ]  Implementar Phosphor Icon
 - [ ]  Manipular arquivo SVG 
 - [ ]  Finalizar Layout

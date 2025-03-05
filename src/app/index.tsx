@@ -1,10 +1,14 @@
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function Catalog() {
+
+    const router = useRouter();
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
+      <Button title="Produto" onPress={() => router.navigate("/product/1")} />
       <StatusBar style="auto" />
     </View>
   );
