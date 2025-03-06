@@ -14,14 +14,14 @@ Criar a parte visual de uma aplicação de entregas de café, o Coffee Delivery.
 - [X]  Implementar Expo Router
 - [X]  Implementar Nativewind 
 - [X]  Implementar Tema
-- [ ]  Implementar Phosphor Icon
+- [X]  Implementar Phosphor Icon
 - [ ]  Manipular arquivo SVG 
 - [ ]  Finalizar Layout
 
 ### 📱 Telas:
 
 - [X]  Splash Screen
-- [ ]  Catálogo
+- [X]  Catálogo
 - [ ]  Produto 
 - [ ]  Carrinho
 - [ ]  Compra Finalizada

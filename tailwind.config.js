@@ -1,5 +1,5 @@
-import { colors } from "./src/styles/colors"
-import { fontFamily } from "./src/styles/fontFamily"
+import { colors } from "./src/styles/colors";
+import {fontFamily } from "./src/styles/fontFamily"
 
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: colors,
-      fontFamily: fontFamily,
+      fontFamily: fontFamily
     }
   },
   plugins: [],
