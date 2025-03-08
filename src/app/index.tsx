@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Image, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
+import { Image, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MapPin, ShoppingCart } from "phosphor-react-native";
 
 import { Carousel } from "@/components/carousel";
@@ -30,9 +30,9 @@ export default function Catalog() {
             <Text className="text-gray-900 text-sm font-roboto font-normal">Porto Alegre, RS</Text>
           </View>
           
-          <View>
+          <TouchableOpacity onPress={() => router.navigate("/product/1")}>
             <ShoppingCart size={20} weight="fill" color={colors.yellow_dark} />
-          </View>
+          </TouchableOpacity>
 
         </View>
 
