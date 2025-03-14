@@ -9,10 +9,12 @@ type Props = TouchableOpacityProps & {
     onClick?: () => void;
     variant?: boolean;
     Icon?: React.ComponentType<IconProps>;
-    weight?: IconWeight
+    weight?: IconWeight;
+    size?: number;
+    color?: string;
 }
 
-export function Button({ title, onClick, variant = false, Icon, className, weight, ...rest }: Props) {
+export function Button({ title, onClick, variant = false, Icon, className, weight, color = colors.purple, size = 20, ...rest }: Props) {
 
     return (
         <TouchableOpacity
@@ -22,10 +24,10 @@ export function Button({ title, onClick, variant = false, Icon, className, weigh
                 { "flex-1 bg-purple_dark": variant },
                 className
             )}
-            onPress={() => onClick()}
+            onPress={onClick}
             {...rest}
         >
-            {Icon ? (<Icon size={20} color={colors.purple} weight={weight}/>)
+            {Icon ? (<Icon size={size} color={color} weight={weight} />)
                 :
                 (<Text className={`font-robotoBold
             ${variant ? "text-white text-base" : "text-purple text-lg px-4"}`} >

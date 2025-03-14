@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { ArrowLeft, Minus, Plus, ShoppingCart } from "phosphor-react-native";
 
@@ -15,8 +15,6 @@ export default function Product() {
 
     const options = ["114ml", "140ml", "227ml"];
 
-    const router = useRouter();
-
     const handleButton = (index: number) => {
         setButtonSelected(index);
     };
@@ -27,13 +25,16 @@ export default function Product() {
             <View className="bg-gray-100">
 
                 <View className="justify-between flex-row mx-8 mt-5 mb-8">
+
                     <Button Icon={ArrowLeft} onClick={() => router.back()} />
-                    <TouchableOpacity onPress={() => { }}>
+
+                    <TouchableOpacity onPress={() => router.navigate("")}>
                         {shopCartCounter > 0 ? (<View className="w-5 h-5 justify-center items-center rounded-full bg-purple ml-8 -mb-1">
                             <Text className="p-1 font-robotoRegular text-white text-[8px]">{shopCartCounter}</Text>
                         </View>) : <View className="w-5 h-5 -mb-1" />}
                         <Button Icon={ShoppingCart} weight="fill" />
                     </TouchableOpacity>
+
                 </View>
 
                 <View className="flex-row justify-between items-center mx-8">

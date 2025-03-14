@@ -22,8 +22,8 @@ Criar a parte visual de uma aplicação de entregas de café, o Coffee Delivery.
 
 - [X]  Splash Screen
 - [X]  Catálogo
-- [ ]  Produto 
-- [ ]  Carrinho
+- [X]  Produto 
+- [X]  Carrinho
 - [ ]  Compra Finalizada
 
 ### 🎉 Animações:
