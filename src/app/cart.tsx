@@ -14,7 +14,9 @@ export default function Cart() {
             <View className="bg-white p-8">
 
                 <View className="relative flex-row items-center">
-                    <Button Icon={ArrowLeft} onClick={() => router.back()} size={24} />
+                    <Button onPress={() => router.back()}>
+                        <Button.Icon Icon={ArrowLeft} size={24} />
+                    </Button>
 
                     <Text className="absolute left-1/2 -translate-x-1/2 top-1 font-baloo2Bold text-2xl text-gray-200">
                         Carrinho
@@ -48,17 +50,24 @@ export default function Cart() {
                             </Text>
                         </View>
 
-                        <View className="flex-row mx-3 mb-3 gap-2">
+                        <View className="flex-row mx-3 mb-3 gap-4">
 
                             <View className="flex-row border-purple_light border-2 gap-2 rounded-md" >
-                                <Button className="p-2" Icon={Minus} weight="bold" />
+                                <Button className="p-2">
+                                    <Button.Icon Icon={Minus} />
+                                </Button>
                                 <View className="w-5 justify-center items-center">
                                     <Text className="font-robotoRegular text-lg text-gray-100">1</Text>
                                 </View>
-                                <Button className="p-2" Icon={Plus} weight="bold" />
+                                <Button className="p-2">
+                                    <Button.Icon Icon={Plus} />
+                                </Button>
                             </View>
+                            
+                            <Button className="bg-gray-600 py-2 px-3">
+                                <Button.Icon Icon={Trash} />
+                            </Button>
 
-                            <Button Icon={Trash} weight="bold" className="bg-gray-600 py-2 px-3" />
                         </View>
 
                     </View>
@@ -66,9 +75,9 @@ export default function Cart() {
 
             </View>
 
-            <View className="justify-end gap-3 bg-white">
+            <View className="justify-end gap-4 bg-white">
 
-                <View className="flex-row mt-5 mb-8 mx-8 justify-between">
+                <View className="flex-row mt-4 mx-8 justify-between">
                     <Text className="font-robotoRegular text-lg text-gray-400 self-center">
                         Valor total
                     </Text>
@@ -77,12 +86,15 @@ export default function Cart() {
                     </Text>
                 </View>
                 <View className="flex-row mx-8 mb-8">
-                    <Button
+                    {/* <Button
                         title="CONFIRMAR PEDIDO"
                         className="p-4"
                         variant={true}
-                        onClick={() => { }}
-                    />
+                        onPress={() => router.navigate("/finished")}
+                    /> */}
+                    <Button className="flex-1 bg-yellow_dark" onPress={() => router.navigate("/finished")}>
+                        <Button.Title className="font-robotoRegular font-bold text-white text-base py-4">CONFIRMAR PEDIDO</Button.Title>
+                    </Button>
                 </View>
 
             </View>

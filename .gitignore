@@ -3,11 +3,11 @@
 # dependencies
 node_modules/
 
-# Android
-android
+# Android 
+android/
 
-# Build
-build*.apk
+# Android Build
+*.apk
 
 # Expo
 .expo/

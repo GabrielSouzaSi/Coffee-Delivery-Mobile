@@ -6,6 +6,7 @@ import { ArrowLeft, Minus, Plus, ShoppingCart } from "phosphor-react-native";
 import { Select } from "@/components/select";
 
 import { Button } from "@/components/button";
+import { colors } from "@/styles/colors";
 
 export default function Product() {
 
@@ -19,20 +20,25 @@ export default function Product() {
         setButtonSelected(index);
     };
 
+    const handleCounter = (n: number) => {
+        n === 0 || n === 10 ? null : setCounter(n);
+    }
+
     return (
         <View className="flex-1 bg-white">
 
             <View className="bg-gray-100">
 
                 <View className="justify-between flex-row mx-8 mt-5 mb-8">
+                    <Button onPress={() => router.back()}>
+                        <Button.Icon Icon={ArrowLeft} />
+                    </Button>
 
-                    <Button Icon={ArrowLeft} onClick={() => router.back()} />
-
-                    <TouchableOpacity onPress={() => router.navigate("")}>
-                        {shopCartCounter > 0 ? (<View className="w-5 h-5 justify-center items-center rounded-full bg-purple ml-8 -mb-1">
+                    <TouchableOpacity onPress={() => router.navigate("/cart")}>
+                        {shopCartCounter > 0 ? (<View className="w-5 h-5 justify-center items-center rounded-full bg-purple ml-5 -mb-1">
                             <Text className="p-1 font-robotoRegular text-white text-[8px]">{shopCartCounter}</Text>
-                        </View>) : <View className="w-5 h-5 -mb-1" />}
-                        <Button Icon={ShoppingCart} weight="fill" />
+                        </View>): <View className="w-5 h-5 ml-5 -mb-1" />}
+                            <ShoppingCart size={20} color={colors.purple} weight="fill" />
                     </TouchableOpacity>
 
                 </View>
@@ -75,18 +81,19 @@ export default function Product() {
                         <Select key={item} selected={buttonSelected === index} title={item} onClick={() => handleButton(index)} />
                     ))}
                 </View>
-                <View className="flex-row justify-between rounded-md bg-gray-700 my-4 p-2 gap-4">
-                    <Button className="ml-4" Icon={Minus} onClick={() => setCounter(counter - 1)} weight="bold" />
-                    <View className="w-5 justify-center items-center">
+                <View className="flex-row justify-between rounded-md bg-gray-700 my-4 p-3">
+                    <Button className="p-3" onPress={() => handleCounter(counter - 1)}>
+                        <Button.Icon Icon={Minus} />
+                    </Button>
+                    <View className="w-6 justify-center items-center">
                         <Text className="font-robotoRegular text-lg text-gray-100">{counter}</Text>
                     </View>
-                    <Button Icon={Plus} onClick={() => setCounter(counter + 1)} weight="bold" />
-                    <Button 
-                        title="ADICIONAR"
-                        className="ml-2 p-3"
-                        variant={true} 
-                        onClick={() => setShopCartCounter(shopCartCounter + counter)}
-                        />
+                    <Button className="p-3" onPress={() => handleCounter(counter + 1)}>
+                        <Button.Icon Icon={Plus} />
+                    </Button>
+                    <Button className="flex-1 bg-purple ml-5" onPress={() => setShopCartCounter(shopCartCounter + counter)}>
+                        <Button.Title className="font-robotoRegular font-bold text-white text-base py-4">ADICIONAR</Button.Title>
+                    </Button>
                 </View>
             </View>
         </View>

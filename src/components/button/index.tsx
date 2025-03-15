@@ -1,38 +1,37 @@
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
-import { IconProps, IconWeight } from "phosphor-react-native"
-import { colors } from "@/styles/colors";
+import { Text, TextProps, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { IconProps as PhosphorIconProps, IconWeight } from "phosphor-react-native";
 import clsx from "clsx";
 
+type ButtonProps = TouchableOpacityProps;
 
-type Props = TouchableOpacityProps & {
-    title?: string;
-    onClick?: () => void;
-    variant?: boolean;
-    Icon?: React.ComponentType<IconProps>;
-    weight?: IconWeight;
-    size?: number;
-    color?: string;
-}
-
-export function Button({ title, onClick, variant = false, Icon, className, weight, color = colors.purple, size = 20, ...rest }: Props) {
+function Button({ children, className, ...rest }: ButtonProps) {
 
     return (
         <TouchableOpacity
-            className={clsx(
-                "justify-center items-center rounded-md",
-                { "bg-transparent": variant === false },
-                { "flex-1 bg-purple_dark": variant },
-                className
-            )}
-            onPress={onClick}
+            className={clsx("justify-center items-center rounded-md", className)}
             {...rest}
         >
-            {Icon ? (<Icon size={size} color={color} weight={weight} />)
-                :
-                (<Text className={`font-robotoBold
-            ${variant ? "text-white text-base" : "text-purple text-lg px-4"}`} >
-                    {title}
-                </Text>)}
+            {children}
         </TouchableOpacity>
     )
 }
+
+function Title({ children, className }: TextProps) {
+    return <Text className={className}>{children}</Text>
+}
+
+interface ButtonIconProps {
+    Icon: React.ComponentType<PhosphorIconProps>;
+    size?: number;
+    color?: string;
+    weight?: IconWeight;
+}
+
+function Icon({ Icon, size=20, color="#8047F8", weight="bold", ...rest }: ButtonIconProps) {
+    return <Icon size={size} color={color} weight={weight} {...rest} />;
+}
+
+Button.Title = Title
+Button.Icon = Icon
+
+export { Button }

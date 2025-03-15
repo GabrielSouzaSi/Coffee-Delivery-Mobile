@@ -24,7 +24,7 @@ Criar a parte visual de uma aplicação de entregas de café, o Coffee Delivery.
 - [X]  Catálogo
 - [X]  Produto 
 - [X]  Carrinho
-- [ ]  Compra Finalizada
+- [X]  Compra Finalizada
 
 ### 🎉 Animações:
 
